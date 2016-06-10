@@ -15,6 +15,7 @@ if ( !defined( 'ABSPATH' ) ) {
 add_action( 'wp_ajax_test', 'ajax_test' );
 
 function ajax_test() {
+  check_ajax_referer( 'ajax_test' );
         // Il manque une vérification de nonce, cette fonction n'est pas valide wordpress-validator
   	wp_send_json_success( array( 'La requête n'est pas sécurisée!' ) );
 }
